@@ -1,9 +1,7 @@
 function handleKeyPress(ev) {
     console.log(ev)      
     if (ev.code === "Space") {
-    const player = document.querySelector("#player")
-    player.setAttribute("cx", 100 * Math.random())
-    player.setAttribute("cy", 100 * Math.random())
+    dy = -1           
     } else if (ev.key === "r") {
         player.setAttribute("fill", "red");
     } else if (ev.key === "g") {
@@ -12,7 +10,7 @@ function handleKeyPress(ev) {
 }
 
 let dy = 0
-
+ 
 function gameLoop() {
 // Update game state
 dy = Math.min(dy + 0.05, 1)
