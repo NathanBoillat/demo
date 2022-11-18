@@ -1,3 +1,7 @@
+let dy = 0
+let dx = 0
+
+
 function handleKeyPress(ev) {
     console.log(ev)      
     if (ev.code === "Space") {
@@ -12,10 +16,15 @@ function handleKeyPress(ev) {
         dx = -1   
     }
 }
+    
+function handleKeyRelease(ev) {
+if (ev.code === "ArrowRight") {
+    dx = 0
+} else if (ev.code === "ArrowLeft") {
+    dx = 0
+}
+}  
 
-let dy = 0
-let dx = 0
- 
 function gameLoop() {
 // Update game state  
 dy = Math.min(dy + 0.05, 1)
@@ -42,3 +51,4 @@ dy = Math.min(dy + 0.05, 1)
 gameLoop()    
 
 window.onkeydown = handleKeyPress;
+window.onkeyup = handleKeyRelease;
