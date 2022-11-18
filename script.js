@@ -6,6 +6,9 @@ function handleKeyPress(ev) {
     console.log(ev)      
     if (ev.code === "Space") {
     dy = -1           
+console.log(ev)
+    const player = document.querySelector("#player")
+    spawnItem()
     } else if (ev.key === "r") {
         player.setAttribute("fill", "red");
     } else if (ev.key === "g") {
@@ -52,3 +55,15 @@ gameLoop()
 
 window.onkeydown = handleKeyPress;
 window.onkeyup = handleKeyRelease;
+function spawnItem() {
+    const NS = "http://www.w3.org/2000/svg"
+    const item = document.createElementNS(NS, "circle")
+    item.setAttribute("cx", 100 * Math.random())
+    item.setAttribute("cy", 20 * Math.random() + 80)
+    item.setAttribute("r", 2)
+    item.setAttribute("fill", "black") 
+    item.setAttribute("class", "item")
+    document.querySelector("svg").appendChild(item)  
+}
+
+window.onkeydown = handleKeyPress
